@@ -1,0 +1,39 @@
+from tkinter import *
+import tkinter as tk
+window=tk.Tk()
+window.configure(bg="SkyBlue")
+window.geometry("600x600")
+window.title("Play With Events")
+def enter(event):
+    print("You just entered a trick")
+
+button=tk.Button(window, text="Welcome", bg="Yellow")
+button.grid(row=0, column=0)
+button.bind("<Enter>", enter)
+def leave(event):
+    print("You just left")
+
+button=tk.Button(window, text="Leave me", bg="Orange")
+button.grid(row=0, column=1)
+button.bind("<Leave>", leave)
+def motion(event):
+    print("You are around me")
+
+button=tk.Button(window, text="Maintain social distance", bg="Red")
+button.grid(row=0, column=2)
+button.bind("<Motion>", motion)
+def mouseclick(event):
+    print("I clicked my mouse")
+def doubleclick(event):
+    print("You just clicked twice")
+button=tk.Button(window, text="don't click me", bg="Green")
+button.grid(row=0, column=3)
+button.bind("<Button>", mouseclick)
+button=tk.Button(window, text="don't click me twice", bg="Purple", fg="White")
+button.grid(row=0, column=4)
+button.bind("<Double-1>", doubleclick)
+image=tk.PhotoImage(file="python_gif.gif")
+label=tk.Label(image=image)
+label.grid(columnspan=5, ipadx=38)
+window.mainloop()
+
